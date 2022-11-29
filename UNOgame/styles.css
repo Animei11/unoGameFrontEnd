@@ -26,12 +26,12 @@ button {
 }
 
 /* Creates visuals for the different buttons */
-.findgame {
+.find-game {
     background-color: rgb(33, 188, 19); 
     color: black; 
 }
 
-.findgame:hover {
+.find-game:hover {
     background-color: #4CAF50;
     color: white;
 }
@@ -79,7 +79,6 @@ button {
 }
 
 .buttonImage {
-    opacity: default;
     width: 90px;
     height: 90px;
 }
