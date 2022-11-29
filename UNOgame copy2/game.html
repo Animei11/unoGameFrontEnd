@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>UNO With Friends</title>
+        <style> 
+            body {background-image: url("bgpics/red.png");}
+        </style>
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+    </head>
+    <body>
+        <script src="game.js"></script>
+        <!-- UNO Image Button -->
+        <img src="bgpics/uno_button.png" class="buttonImage" id="uno" onclick="uno()">
+        <!-- Draw Card(s) Button -->
+        <img src="bgpics/draw_button.jpeg" class="buttonImage" id="drawButton" onclick="drawCards()">
+        <!-- Draw Pile -->
+        <img src="cards/back.png"  class="cardPiles" id="drawPile">
+         <!-- Discard Pile -->
+        <img src="cards/0B.png" class="cardPiles" id="discardPile">
+        <!-- Test Cards for change of color, validation will be added later -->
+        <img style="left:41%" src="cards/9R.png" class="playableCards" onclick="colorChange('red')">
+        <img style="left:44%" src="cards/7G.png" class="playableCards" onclick="colorChange('green')">
+        <img style="left:47%" src="cards/4B.png" class="playableCards" onclick="colorChange('blue')">
+        <img style="left:50%" src="cards/6Y.png" class="playableCards" onclick="colorChange('yellow')">
+    </body>
+</html>

@@ -1,0 +1,100 @@
+/* Centers h1 heading vertically and horizontially which contins the buttons */
+h1 {
+    text-align: center;
+    padding: 250px;
+}
+
+body{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}  
+
+/* Creates general visuals for a button */
+button {
+    background-color: #f9f9f9; /* Green */
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+/* Creates visuals for the different buttons */
+.findgame {
+    background-color: rgb(33, 188, 19); 
+    color: black; 
+}
+
+.findgame:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#uno{ 
+    border-radius: 50%;
+    position: fixed;
+    bottom: 40px;
+    right: 100px; 
+}
+
+#drawButton {
+    border-radius: 50%;
+    position: fixed;
+    bottom: 40px;
+    left: 100px; 
+}
+
+/* Views of players cards*/
+.player1 {}
+.player2 {}
+.player3 {}
+.player4 {}
+
+/* Standard look for all UNO cards */
+.cardPiles {
+    height: 140px;
+    width: 100px;
+    position: fixed;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.playableCards {
+    height: 140px;
+    width: 100px;
+    position: fixed;
+    bottom: 10px;
+}
+
+.playableCards:hover {
+    bottom: 40px;
+    cursor: pointer;
+}
+
+.buttonImage {
+    opacity: default;
+    width: 90px;
+    height: 90px;
+}
+
+.buttonImage:hover {
+    background-color: #4CAF50;
+    color: white;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#discardPile {
+    left: 50%;
+}
+
+#drawPile {
+    left: 42%;
+}
