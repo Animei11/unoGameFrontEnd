@@ -1,10 +1,37 @@
-// Length 104
-const cardArray = ['0R', '1R', '1R', '2R', '2R', '3R', '3R', '4R', '4R', '5R', '5R', '6R', '6R', '7R', '7R', '8R', '8R', '9R', '9R', 'skipR', 'skipR', 'reverseR', 'reverseR', 'draw2R', 'draw2R',
-    '0G', '1G', '1G', '2G', '2G', '3G', '3G', '4G', '4G', '5G', '5G', '6G', '6G', '7G', '7G', '8G', '8G', '9G', '9G', 'skipG', 'skipG', 'reverseG', 'reverseG', 'draw2G', 'draw2G',
-    '0B', '1B', '1B', '2B', '2B', '3B', '3B', '4B', '4B', '5B', '5B', '6B', '6B', '7B', '7B', '8B', '8B', '9B', '9B', 'skipB', 'skipB', 'reverseB', 'reverseB', 'draw2B', 'draw2B',
-    '0Y', '1Y', '1Y', '2Y', '2Y', '3Y', '3Y', '4Y', '4Y', '5Y', '5Y', '6Y', '6Y', '7Y', '7Y', '8Y', '8Y', '9Y', '9Y', 'skipY', 'skipY', 'reverseY', 'reverseY', 'draw2Y', 'draw2Y',
-    'Wild', 'Wild', 'Wild', 'Wild', 'draw4', 'draw4', 'draw4', 'draw4'];
-const cardColorArray = ["red", "green", "blue", "yellow"];
+// Length 108
+const cardArray = [{card: "0R", color: "red"}, {card: "1R", color: "red"}, {card: "1R", color: "red"},
+    {card: "2R", color: "red"}, {card: "2R", color: "red"}, {card: "3R", color: "red"}, {card: "3R", color: "red"},
+    {card: "4R", color: "red"}, {card: "4R", color: "red"}, {card: "5R", color: "red"}, {card: "5R", color: "red"},
+    {card: "6R", color: "red"}, {card: "6R", color: "red"}, {card: "7R", color: "red"}, {card: "7R", color: "red"},
+    {card: "8R", color: "red"}, {card: "8R", color: "red"}, {card: "9R", color: "red"}, {card: "9R", color: "red"},
+    {card: "skipR", color: "red"}, {card: "skipR", color: "red"}, {card: "reverseR", color: "red"},
+    {card: "reverseR", color: "red"}, {card: "draw2R", color: "red"}, {card: "draw2R", color: "red"},
+    {card: "0G", color: "green"}, {card: "1G", color: "green"}, {card: "1G", color: "green"},
+    {card: "2G", color: "green"}, {card: "2G", color: "green"}, {card: "3G", color: "green"},
+    {card: "3G", color: "green"}, {card: "4G", color: "green"}, {card: "4G", color: "green"},
+    {card: "5G", color: "green"}, {card: "5G", color: "green"}, {card: "6G", color: "green"},
+    {card: "6G", color: "green"}, {card: "7G", color: "green"}, {card: "7G", color: "green"},
+    {card: "8G", color: "green"}, {card: "8G", color: "green"}, {card: "9G", color: "green"},
+    {card: "9G", color: "green"}, {card: "skipG", color: "green"}, {card: "skipG", color: "green"},
+    {card: "reverseG", color: "green"}, {card: "reverseG", color: "green"}, {card: "draw2G", color: "green"},
+    {card: "draw2G", color: "green"}, {card: "0B", color: "blue"}, {card: "1B", color: "blue"},
+    {card: "1B", color: "blue"}, {card: "2B", color: "blue"}, {card: "2B", color: "blue"}, {card: "3B", color: "blue"},
+    {card: "3B", color: "blue"}, {card: "4B", color: "blue"}, {card: "4B", color: "blue"}, {card: "5B", color: "blue"},
+    {card: "5B", color: "blue"}, {card: "6B", color: "blue"}, {card: "6B", color: "blue"}, {card: "7B", color: "blue"},
+    {card: "7B", color: "blue"}, {card: "8B", color: "blue"}, {card: "8B", color: "blue"}, {card: "9B", color: "blue"},
+    {card: "9B", color: "blue"}, {card: "skipB", color: "blue"}, {card: "skipB", color: "blue"},
+    {card: "reverseB", color: "blue"}, {card: "reverseB", color: "blue"}, {card: "draw2B", color: "blue"},
+    {card: "draw2B", color: "blue"}, {card: "0Y", color: "yellow"}, {card: "1Y", color: "yellow"},
+    {card: "1Y", color: "yellow"}, { "2Y": "yellow"}, {card: "2Y", color: "yellow"}, {card: "3Y", color: "yellow"},
+    {card: "3Y", color: "yellow"}, {card: "4Y", color: "yellow"}, {card: "4Y", color: "yellow"},
+    {card: "5Y", color: "yellow"}, {card: "5Y", color: "yellow"}, {card: "6Y", color: "yellow"},
+    {card: "6Y", color: "yellow"}, {card: "7Y", color: "yellow"}, {card: "7Y", color: "yellow"},
+    {card: "8Y", color: "yellow"}, {card: "8Y", color: "yellow"}, {card: "9Y", color: "yellow"},
+    {card: "9Y", color: "yellow"}, {card: "skipY", color: "yellow"}, {card: "skipY", color: "yellow"},
+    {card: "reverseY", color: "yellow"}, {card: "reverseY", color: "yellow"}, {card: "draw2Y", color: "yellow"},
+    {card: "draw2Y", color: "yellow"}, {card: "Wild", color: "wild"}, {card: "Wild", color: "wild"},
+    {card: "Wild", color: "wild"}, {card: "Wild", color: "wild"}, {card: "draw4", color:"wild four"},
+    {card: "draw4", color:"draw four"}, {card: "draw4", color:"draw four"}, {card: "draw4", color:"draw four"}]
 // Global variables used for multiple functions
 let interval = 70;
 let card = cardArray[Math.floor(Math.random() * 105)];
