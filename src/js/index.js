@@ -37,6 +37,7 @@ function findGame(status) {
             }
         }
     }
+    
     // Join a game is pressed
     if (status === 1) {
         let gameID = prompt(greeting + "Please enter gameID: ");
