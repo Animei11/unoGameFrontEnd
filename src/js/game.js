@@ -35,7 +35,7 @@ const cardArray = [{card: "0-R", color: "red"}, {card: "1-R", color: "red"}, {ca
 
 // Global variables used for multiple functions
 let interval = 70;
-let card = cardArray[Math.floor(Math.random() * 105)];
+let card = cardArray[Math.floor(Math.random() * 108)];
 
 const CARD_IMG_DIRECTORY_PATH = "img/cards/";
 const CARD_IMG_EXTENSION = ".png";
@@ -45,7 +45,7 @@ const CARD_IMG_EXTENSION = ".png";
 // Draws a number of cards and adds to the player's hand, can be used for drawing a card, +2, +4
 function drawCards(numOfCards) {
     if (numOfCards !== 0) {
-        let card = cardArray[Math.floor(Math.random() * 105)];
+        let card = cardArray[Math.floor(Math.random() * 108)];
         let img = document.createElement("img");
         img.src = CARD_IMG_DIRECTORY_PATH + card.card + CARD_IMG_EXTENSION;
         img.className = "playableCards";
@@ -60,7 +60,7 @@ function drawCards(numOfCards) {
 // Prints as many cards as needed to the player's hand 
 function playersCards(numOfCards) {
     if (numOfCards !== 0) {
-        let card = cardArray[Math.floor(Math.random() * 105)];
+        let card = cardArray[Math.floor(Math.random() * 108)];
         interval -= 3;
         let img = document.createElement("img");
         img.src = CARD_IMG_DIRECTORY_PATH + card.card + CARD_IMG_EXTENSION;
@@ -75,7 +75,27 @@ function playersCards(numOfCards) {
 
 // Displays the number of cards someone has (Maybe there's a way to do this I don't know)
 function displayOpponentsCards(numOfCards) {
-    // code...
+        // Changes x and y positions of opponents cards
+    switch (player) {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+    }
+
+    if (numOfCards) {
+        let img = document.createElement("img");
+        img.src = "cards/" + card + ".png";
+        img.className = "playableCards";
+        img.style = "left: " + interval + "%";
+        let src = document.getElementById("header");
+        src.appendChild(img);
+        setTimeout(playersCards, 150, numOfCards - 1);
+    }
 }
 
 
