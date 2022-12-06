@@ -13,10 +13,11 @@ function findGame(status) {
     let text = "Is " + nickName + " correct?";
     while (confirm(text) === false) {
         text = "Exit the website?";
-        if (confirm(text) === true) {
+        var exit = confirm(text);
+        if (exit === true) {
             window.close();
         }
-        if (confirm(text) === false) {
+        if (exit === false) {
             nickName = prompt("Please enter user ID: ");
             text = "Is " + nickName + " correct?";
         }

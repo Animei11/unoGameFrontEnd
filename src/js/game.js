@@ -101,7 +101,7 @@ function displayOpponentsCards(numOfCards) {
 
 // For UNO button 
 function uno() {
-    prompt("hello");
+    // Code for uno
 }
 
 
