@@ -1,17 +1,18 @@
 // Game attributes
-let gameId;
-let gameState;
 let hostToken = null; // If this player is the host or leave undefined
 let numOfPlayers = 0;
-let isCurrentPlayer;
 
+let gameId;
+let topCard;
+let currentPlayerNickname;
+let hands;
+let skipNext;
+let nextDraws;
+let isClockwise;
+let gameState;
 
 // Player attributes
 let nickname;
-const hands = [];
-
-// Other players' attributes
-const otherHands = {} // use player ids to track
 
 function getPlayerCards(nickname) {
 
@@ -56,8 +57,19 @@ function joinExistingGame(gameId, nickname) {
   }
 }
 
-function startGame(hostToken) {
-  alert("game started")
+function startGame(gameId, hostToken) {
+  $.ajax({
+    url: API_URL + "/start",
+    type: "POST",
+    dataType: "json",
+    contentType: "application/json",
+    data: JSON.stringify({
+      gameId: gameId,
+      hostToken: hostToken
+    }),
+    success: handleStartGameSuccess,
+    error: handleError
+  })
 }
 
 function drawCards(numOfCards) {
@@ -72,6 +84,7 @@ function playCard(card) {
 function handleCreateNewGameSuccess(data) {
   // set game attributes and connect to server
   gameId = data.gameId;
+  nickname = data.nickname;
   hostToken = data.hostToken;
   gameState = data.gameState;
   numOfPlayers = 1;
@@ -86,9 +99,16 @@ function handleCreateNewGameSuccess(data) {
 function handleJoinGameSuccess(data) {
   gameId = data.gameId;
   gameState = data.gameState;
+  nickname = data.playerNickname;
   console.log("Join game successfully!");
   console.log("Joined gameId: ", gameId, "joined gameState: ", gameState);
   connectToSocket(gameId);
+}
+
+function handleStartGameSuccess(data) {
+  syncGameWithServer(data.gameUpdate);
+  storeGameInfo();
+  changeViewToActiveGame();
 }
 
 function handleError(error) {
