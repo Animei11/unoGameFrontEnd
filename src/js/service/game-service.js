@@ -32,7 +32,7 @@ function createNewGame(nickname) {
         nickname: nickname
       }),
       success: handleCreateNewGameSuccess,
-      error: handleError
+      error: handleGenericError
     })
   }
 }
@@ -52,7 +52,7 @@ function joinExistingGame(gameId, nickname) {
         nickname: nickname
       }),
       success: handleJoinGameSuccess,
-      error: handleError
+      error: handleGenericError
     })
   }
 }
@@ -68,19 +68,67 @@ function startGame(gameId, hostToken) {
       hostToken: hostToken
     }),
     success: handleStartGameSuccess,
-    error: handleError
+    error: handleGenericError
   })
 }
 
-function drawCards(numOfCards) {
-
+function drawNewCards(numOfCards) {
+  $.ajax({
+    url: API_URL + "/draw",
+    type: "POST",
+    dataType: "json",
+    contentType: "application/json",
+    data: JSON.stringify({
+      gameId: gameId,
+      playerNickname: nickname,
+      numOfDraws: numOfCards
+    }),
+    success: handleDrawCardSuccess,
+    error: handleDrawCardError
+  })
 }
 
 function playCard(card) {
+  let newColor = null;
+  // check if is a wild card
 
+  // prompt user to pick color if is wild card
+
+
+
+  $.ajax({
+    url: API_URL + "/playCard",
+    type: "POST",
+    dataType: "json",
+    contentType: "application/json",
+    data: JSON.stringify({
+      gameId: gameId,
+      playerNickname: nickname,
+      cardPlayed: card,
+      newColor: newColor
+    }),
+    success: handlePlayCardSuccess,
+    error: handlePlayCardError
+  })
 }
 
 /* ||---------- HELPER FUNCTIONS ----------|| */
+
+function handleDrawCardSuccess(data) {
+  renderPlayerCards(data);
+}
+
+function handleDrawCardError(data) {
+  alert(NOT_YOUR_TURN_MESSAGE);
+}
+
+function handlePlayCardSuccess(data) {
+
+}
+
+function handlePlayCardError(data) {
+
+}
 function handleCreateNewGameSuccess(data) {
   // set game attributes and connect to server
   gameId = data.gameId;
@@ -106,11 +154,13 @@ function handleJoinGameSuccess(data) {
 }
 
 function handleStartGameSuccess(data) {
+  console.log("data: " + data)
+  console.log("gameUpdate: " + data.gameUpdate);
   syncGameWithServer(data.gameUpdate);
   storeGameInfo();
   changeViewToActiveGame();
 }
 
-function handleError(error) {
+function handleGenericError(error) {
   console.log(error);
 }

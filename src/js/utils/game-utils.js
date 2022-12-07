@@ -14,6 +14,7 @@ function storeGameInfo() {
     gameState: gameState,
     nickname: nickname
   }
+  console.log("gameinfo:", gameInfo)
   localStorage.setItem(gameInfoKey, JSON.stringify(gameInfo));
 }
 
