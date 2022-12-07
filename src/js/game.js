@@ -110,23 +110,62 @@ function renderTopCard() {
 
 // // Prints as many cards as needed to the player's hand
 function playersCards(numOfCards) {
-  if (numOfCards !== 0) {
-    let card = cardArray[Math.floor(Math.random() * 105)];
-    interval -= 3;
-    let img = document.createElement("img");
-    img.src = CARD_IMG_DIRECTORY_PATH + card.card + CARD_IMG_EXTENSION;
-    img.className = "playableCards";
-    img.style.cssText = "left: " + interval + "%";
-    let src = document.getElementById("header");
-    src.appendChild(img);
-    setTimeout(playersCards, 150, numOfCards - 1);
-  }
+    if (numOfCards !== 0) {
+        let card = cardArray[Math.floor(Math.random() * 107)];
+        interval -= 3;
+        let img = document.createElement("img");
+        img.src = CARD_IMG_DIRECTORY_PATH + card.card + CARD_IMG_EXTENSION;
+        img.className = "playableCards";
+        img.style.cssText = "left: " + interval + "%";
+        img.addEventListener('click', handleClick);
+        let src = document.getElementById("header");
+        src.appendChild(img);
+        setTimeout(playersCards, 150, numOfCards - 1);
+    }
+}
+
+function handleClick(event) {
+    let src = event.target.src;
+    console.log(src);
+    // parse src to get file name without extension
+    // divide by -
+}
+
+// Displays the number of cards someone has
+function displayOpponentsCards(numOfCards) {
+        // Changes x and y positions of opponents cards
+    switch (player) {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+    }
+
+    if (numOfCards) {
+        let card = cardArray[Math.floor(Math.random() * 107)];
+        interval -= 3;
+        let img = document.createElement("img");
+        img.src = CARD_IMG_DIRECTORY_PATH + "back" + CARD_IMG_EXTENSION;
+        img.className = "playableCards";
+        img.style.cssText = "left: " + interval + "%";
+        let src = document.getElementById("header");
+        src.appendChild(img);
+        setTimeout(playersCards, 150, numOfCards - 1);
+    }
 }
 
 
-// Displays the number of cards someone has (Maybe there's a way to do this I don't know)
-function displayOpponentsCards(numOfCards) {
-  // code...
+function selectedCard(card, color) {
+    let discard = cardArray[20];
+    var discardCard = discard.card;
+    var discardColor = discard.color;
+    prompt(card, color, discardCard, discardColor);
+//    if (discardCard === card || discardColor === color) {
+//    }
 }
 
 
