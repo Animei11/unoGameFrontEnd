@@ -80,6 +80,8 @@ function handleJoin(data) {
 
 function handleStart(data) {
   console.log("handling start: ", data)
+  console.log(data.gameUpdate);
+  console.log("currentPlayerNickname: " + data.gameUpdate.currentPlayerNickname)
   syncGameWithServer(data.gameUpdate);
 
   alert("Game started!");
