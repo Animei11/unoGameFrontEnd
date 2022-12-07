@@ -1,4 +1,5 @@
 
+
 function createGame() {
     let inputNickname = prompt("Please enter your nickname: ");
     createNewGame(inputNickname);
