@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--  lib for jquery  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!--  libs for stomp and sockjs  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <!--    game scripts    -->
+    <script src="../game.js"></script>
+    <script src="../index.js"></script>
+    <script src="../utils/card-utils.js"></script>
+    <script src="../utils/game-utils.js"></script>
+    <script src="../utils/server-config.js"></script>
+    <script src="../service/game-service.js"></script>
+    <script src="../service/web-socket.js"></script>
+    <title>Game Service Test</title>
+</head>
+<body>
+
+<button id="create-game-btn">Create new game</button>
+<p id="display"></p>
+
+<input id="game-id-input" type="text" />
+<button id="join-game-btn">Join game</button>
+
+</body>
+<script>
+    let createGameBtn = document.getElementById("create-game-btn");
+    let joinGameBtn = document.getElementById("join-game-btn");
+    let display = document.getElementById("display");
+
+    createGameBtn.addEventListener("click", function (event) {
+      createNewGame("sunkit");
+      display.textContent = gameId;
+    })
+
+    joinGameBtn.addEventListener("click", function (event) {
+      let gameIdInput = document.getElementById("game-id-input");
+      joinExistingGame(gameIdInput.value, "anotherPlayer");
+    })
+
+
+</script>
+</html>

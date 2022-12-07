@@ -1,14 +1,20 @@
 /* Centers h1 heading vertically and horizontally which contains the buttons */
 h1 {
     text-align: center;
-    padding: 250px;
 }
 
 body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
-}  
+}
+
+.home-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
 
 /* Creates general visuals for a button */
 button {
