@@ -10,13 +10,10 @@ function connectToSocket(gameId) {
     console.log("Connected to the frame: " + frame);
     pingOtherPLayers();
 
-    stompClient.subscribe("/topic/game-progress/" + gameId,
-      // function (response) {
-      //   console.log("Relaying response: "+ response);
-      // handleServerMessage(response);
-      // }
+    stompClient.subscribe(
+      "/topic/game-progress/" + gameId,
       handleServerMessage
-      )
+    )
   })
 }
 
@@ -37,9 +34,6 @@ function handleServerMessage(response) {
       break;
     case "JOIN":
       handleJoin(data);
-      break;
-    case "FULL":
-      handleFull(data);
       break;
     case "START":
       handleStart(data);
@@ -67,7 +61,15 @@ function handleJoin(data) {
   gameState = data.gameState;
 
   // update player count displayed on home page
-  updatePlayerCount();
+  // if the current page is index.html
+  let currentPath = window.location.pathname;
+  let currentFile = currentPath.substring(
+    currentPath.lastIndexOf("/") + 1,
+    currentPath.lastIndexOf(".")
+  );
+  if (currentFile === "index") {
+    updatePlayerCount();
+  }
 
   // notify host to start game
   if (gameState === "FULL" && hostToken !== null) {
@@ -76,12 +78,12 @@ function handleJoin(data) {
   }
 }
 
-function handleFull(data) {
-  console.log("handling full: ", data)
-}
-
 function handleStart(data) {
   console.log("handling start: ", data)
+  syncGameWithServer(data.gameUpdate);
+
+  alert("Game started!");
+  handleStartGameSuccess(data);
 }
 
 function handleGameUpdate(data) {
@@ -90,4 +92,14 @@ function handleGameUpdate(data) {
 
 function handleCardsDrawn(data) {
   console.log("handling cards drawn: ", data)
+}
+
+function syncGameWithServer(update) {
+  topCard = update.topCard;
+  currentPlayerNickname = update.currentPlayerNickname;
+  hands = update.hands;
+  skipNext = update.skipNext;
+  nextDraws = update.nextDraws;
+  isClockwise = update.isClockwise;
+  gameState = update.gameState;
 }
