@@ -63,7 +63,7 @@ const cardArray = [{card: "0-R", color: "red"}, {card: "1-R", color: "red"}, {ca
 
 // Global variables used for multiple functions
 let interval = 70;
-// let card = cardArray[Math.floor(Math.random() * 105)];
+// let card = cardArray[Math.floor(Math.random() * 107)];
 
 const CARD_IMG_DIRECTORY_PATH = "img/cards/";
 const CARD_IMG_EXTENSION = ".png";
@@ -73,7 +73,7 @@ const CARD_IMG_EXTENSION = ".png";
 // Draws a number of cards and adds to the player's hand, can be used for drawing a card, +2, +4
 function drawCard(numOfCards) {
   for (let i = 0; i < numOfCards; i++) {
-    let card = cardArray[Math.floor(Math.random() * 105)];
+    let card = cardArray[Math.floor(Math.random() * 107)];
     let img = document.createElement("img");
     img.src = CARD_IMG_DIRECTORY_PATH + card.card + CARD_IMG_EXTENSION;
     img.className = "playableCards";
@@ -133,7 +133,7 @@ function handleClick(event) {
 
 // Displays the number of cards someone has
 function displayOpponentsCards(numOfCards) {
-        // Changes x and y positions of opponents cards
+    // Changes x and y positions of opponents cards
     switch (player) {
         case 1:
             break;
@@ -158,20 +158,18 @@ function displayOpponentsCards(numOfCards) {
     }
 }
 
-
 function selectedCard(card, color) {
     let discard = cardArray[20];
-    var discardCard = discard.card;
-    var discardColor = discard.color;
+    let discardCard = discard.card;
+    let discardColor = discard.color;
     prompt(card, color, discardCard, discardColor);
 //    if (discardCard === card || discardColor === color) {
 //    }
 }
 
-
 // For UNO button
 function uno() {
-  prompt("hello");
+    // Code...
 }
 
 
