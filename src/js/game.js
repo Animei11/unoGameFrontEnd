@@ -126,7 +126,27 @@ function playersCards(numOfCards) {
 
 // Displays the number of cards someone has (Maybe there's a way to do this I don't know)
 function displayOpponentsCards(numOfCards) {
-  // code...
+    // Changes x and y positions of opponents cards
+    switch (player) {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+    }
+
+    if (numOfCards) {
+        let img = document.createElement("img");
+        img.src = "cards/" + card + ".png";
+        img.className = "playableCards";
+        img.style = "left: " + interval + "%";
+        let src = document.getElementById("header");
+        src.appendChild(img);
+        setTimeout(playersCards, 150, numOfCards - 1);
+    }
 }
 
 
