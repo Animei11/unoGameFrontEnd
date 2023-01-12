@@ -15,3 +15,7 @@ Technology
 - Javascript
 - HTML
 - CSS
+
+Acknowledements
+- [Chirantan P](https://www.linkedin.com/in/chirantan-pradhan-76673019b/) for the background images
+- [AlexDer](https://alexder.itch.io/) for the UNO card images
